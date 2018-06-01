@@ -1,0 +1,6 @@
+model_checkpoint_path: "hed.ckpt-130"
+all_model_checkpoint_paths: "hed.ckpt-90"
+all_model_checkpoint_paths: "hed.ckpt-100"
+all_model_checkpoint_paths: "hed.ckpt-110"
+all_model_checkpoint_paths: "hed.ckpt-120"
+all_model_checkpoint_paths: "hed.ckpt-130"

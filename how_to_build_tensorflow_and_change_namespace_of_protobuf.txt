@@ -1,0 +1,141 @@
+这里记录的操作流程是以 tensorflow-1.7.0.tar.gz 为基准代码，目标是修改 protobuf 的 namespace。
+另外，源码目录中自带的脚本 tensorflow/tensorflow/contrib/makefile/rename_protobuf.sh 也是尝试修改 protobuf 的 namespace，和这里记录的操作方式是不一样的，对 protobuf 代码的改动很大，而且，我试过这个脚本，并不成功。
+
+
+1 解压 tensorflow-1.7.0.tar.gz，文件夹重命名为 tensorflow-1.7.0-change-protobuf-namespace
+
+
+2 修改 protobuf 源码，更改 namespace (这种方法可以做到只修改 protobuf 的一小部分代码，而不需要修改 TensorFlow 的代码)
+2.1 进入 tensorflow-1.7.0-change-protobuf-namespace 目录
+
+2.2 不要直接执行 tensorflow/contrib/makefile/build_all_ios.sh 脚本
+后续步骤中要做的事情，就是单独执行 download_dependencies.sh 脚本，然后手动修改 protobuf 的代码，然后再执行后续的流程
+
+2.3 执行下面的脚本程序下载各种依赖库
+```
+./tensorflow/contrib/makefile/download_dependencies.sh
+```
+
+2.4 进入 ./tensorflow/contrib/makefile/downloads/protobuf 目录，手动修改 protobuf 的源码
+思路就是把 protobuf 源码里面的 namespace google 替换成自定义的一个命名空间，不需要暴力的替换源码里面所有的对应字段，只需要在关键的代码文件中，用宏定义替换一下 "google"
+
+例如，把
+```
+namespace google {
+```
+
+这样的一行代码改成如下的两行
+```
+#define google tf_protobuf3_private
+namespace google {
+```
+
+
+需要修改的源码文件包括下面这些：
+```
+tensorflow/contrib/makefile/downloads/protobuf/src/google/protobuf/arena.h
+tensorflow/contrib/makefile/downloads/protobuf/src/google/protobuf/repeated_field.h
+
+tensorflow/contrib/makefile/downloads/protobuf/src/google/protobuf/stubs/atomic_sequence_num.h
+tensorflow/contrib/makefile/downloads/protobuf/src/google/protobuf/stubs/callback.h
+tensorflow/contrib/makefile/downloads/protobuf/src/google/protobuf/stubs/common.h
+tensorflow/contrib/makefile/downloads/protobuf/src/google/protobuf/stubs/logging.h
+tensorflow/contrib/makefile/downloads/protobuf/src/google/protobuf/stubs/macros.h
+tensorflow/contrib/makefile/downloads/protobuf/src/google/protobuf/stubs/port.h
+tensorflow/contrib/makefile/downloads/protobuf/src/google/protobuf/stubs/template_util.h
+
+tensorflow/contrib/makefile/downloads/protobuf/src/google/protobuf/stubs/ 目录里面所有以 atomicops 开头的 .h 和 .cc 文件
+```
+
+2.5 备份 tensorflow/contrib/makefile/build_all_ios.sh
+执行如下命令
+```
+cp tensorflow/contrib/makefile/build_all_ios.sh tensorflow/contrib/makefile/build_all_ios.sh-original
+```
+
+2.6 修改 tensorflow/contrib/makefile/build_all_ios.sh，删除里面 download_dependencies.sh 相关的调用
+主要是注释掉了下面这两句
+```
+## rm -rf tensorflow/contrib/makefile/downloads
+## tensorflow/contrib/makefile/download_dependencies.sh
+```
+
+
+3 编译 TensorFlow 静态库
+3.1 手动裁剪 TensorFlow，编辑 tensorflow/contrib/makefile/tf_op_files.txt 文件，只保留模型需要用到的 operation 操作对应的源码文件
+
+裁剪过后的 tf_op_files.txt 文件如下：
+
+```
+tensorflow/core/kernels/ops_util.cc
+tensorflow/core/kernels/function_ops.cc
+tensorflow/core/kernels/bias_op.cc
+tensorflow/core/kernels/concat_op.cc
+tensorflow/core/kernels/concat_lib_cpu.cc
+tensorflow/core/kernels/constant_op.cc
+tensorflow/core/kernels/fill_functor.cc
+tensorflow/core/kernels/conv_ops.cc
+tensorflow/core/kernels/conv_ops_using_gemm.cc
+tensorflow/core/kernels/conv_grad_filter_ops.cc
+tensorflow/core/kernels/conv_grad_input_ops.cc
+tensorflow/core/kernels/conv_grad_ops.cc
+tensorflow/core/kernels/depthwise_conv_op.cc
+tensorflow/core/kernels/fused_batch_norm_op.cc
+tensorflow/core/kernels/identity_op.cc
+tensorflow/core/kernels/remote_fused_graph_execute_utils.cc
+tensorflow/core/kernels/pooling_ops_common.cc
+tensorflow/core/kernels/maxpooling_op.cc
+tensorflow/core/kernels/control_flow_ops.cc
+tensorflow/core/kernels/cwise_ops_common.cc
+tensorflow/core/kernels/cwise_op_mul_1.cc
+tensorflow/core/kernels/cwise_op_mul_2.cc
+tensorflow/core/kernels/cwise_op_add_1.cc
+tensorflow/core/kernels/cwise_op_add_2.cc
+tensorflow/core/kernels/no_op.cc
+tensorflow/core/kernels/pack_op.cc
+tensorflow/core/kernels/relu_op.cc
+tensorflow/core/kernels/sendrecv_ops.cc
+tensorflow/core/kernels/strided_slice_op_inst_7.cc
+tensorflow/core/kernels/strided_slice_op_inst_6.cc
+tensorflow/core/kernels/strided_slice_op_inst_5.cc
+tensorflow/core/kernels/strided_slice_op_inst_4.cc
+tensorflow/core/kernels/strided_slice_op_inst_3.cc
+tensorflow/core/kernels/strided_slice_op_inst_2.cc
+tensorflow/core/kernels/strided_slice_op_inst_1.cc
+tensorflow/core/kernels/strided_slice_op_inst_0.cc
+tensorflow/core/kernels/strided_slice_op.cc
+tensorflow/core/ops/nn_grad.cc
+tensorflow/core/ops/nn_ops.cc
+tensorflow/core/ops/array_grad.cc
+tensorflow/core/ops/array_ops.cc
+tensorflow/core/ops/math_ops.cc
+tensorflow/core/ops/math_grad.cc
+tensorflow/core/ops/control_flow_ops.cc
+tensorflow/core/ops/no_op.cc
+tensorflow/core/ops/function_ops.cc
+tensorflow/core/ops/sendrecv_ops.cc
+```
+
+裁剪的过程中遇到一个 bug，和 https://github.com/tensorflow/tensorflow/pull/9459 类似，
+解决办法就是保留 tensorflow/core/kernels/function_ops.cc 这个文件。
+
+3.2 编译静态库
+执行编译脚本
+```
+tensorflow/contrib/makefile/build_all_ios.sh 
+```
+
+编译 i386 架构的时候遇到一个错误，参照 https://github.com/tensorflow/tensorflow/issues/18356 的描述，修改了一下 Makefile 文件
+'''
+I changed -D__thread=thread_local \ to -D__thread= \ in tensorflow/contrib/makefile/Makefile (for the i386 architecture only) and that's an okay workaround for now. It (probably) re-introduces the problem that #12573 solved for that architecture, but at least for my use that's acceptable until this gets a proper solution.
+'''
+
+3.3 自动裁剪(并未使用这种方法)
+TensorFlow Mobile 的文档中有提到另外一种自动裁剪的方法，
+利用脚本工具 print_selective_registration_header 扫描模型文件，
+得到一个 ops_to_register.h 文件，
+然后在编译过程中，TensorFlow 会根据 ops_to_register.h 自动删除未使用的模块。
+
+用这种方法编译出来的静态库，在运行模型的时候仍然会报错，缺少了一些必须的 Op 模块，所以并未使用这种方法编译静态库。
+
+这是因为 Op 之间有依赖关系，从 ops_to_register.h 的内容上看，很多依赖到的 Op 模块都没有列出来。

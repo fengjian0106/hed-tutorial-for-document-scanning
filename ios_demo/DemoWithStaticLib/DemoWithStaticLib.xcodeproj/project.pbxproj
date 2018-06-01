@@ -1,0 +1,424 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5A1D713E207DE6A9002980B3 /* OpenCVUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5A1D713D207DE6A9002980B3 /* OpenCVUtil.mm */; };
+		5A29C0F6207B8E7E0028C9F0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A29C0F5207B8E7E0028C9F0 /* AppDelegate.m */; };
+		5A29C0F9207B8E7E0028C9F0 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5A29C0F8207B8E7E0028C9F0 /* ViewController.mm */; };
+		5A29C0FC207B8E7E0028C9F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A29C0FA207B8E7E0028C9F0 /* Main.storyboard */; };
+		5A29C0FE207B8E820028C9F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A29C0FD207B8E820028C9F0 /* Assets.xcassets */; };
+		5A29C101207B8E820028C9F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A29C0FF207B8E820028C9F0 /* LaunchScreen.storyboard */; };
+		5A29C104207B8E820028C9F0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A29C103207B8E820028C9F0 /* main.m */; };
+		5A29C113207B92600028C9F0 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A29C10B207B8F0C0028C9F0 /* opencv2.framework */; };
+		5A29C115207B93310028C9F0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A29C114207B93300028C9F0 /* AVFoundation.framework */; };
+		5A29C117207B93980028C9F0 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A29C116207B93970028C9F0 /* CoreMedia.framework */; };
+		5A29C119207BA0470028C9F0 /* libFMHEDNet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A29C118207BA0470028C9F0 /* libFMHEDNet.a */; };
+		5A29C121207BA1F10028C9F0 /* hed_graph.pb in Resources */ = {isa = PBXBuildFile; fileRef = 5A29C120207BA1E30028C9F0 /* hed_graph.pb */; };
+		5A29C127207BA8BB0028C9F0 /* libtensorflow-core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A29C11E207BA0B40028C9F0 /* libtensorflow-core.a */; };
+		5A29C12B207BA8BC0028C9F0 /* nsync.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A29C129207BA8BC0028C9F0 /* nsync.a */; };
+		5A5C833D207BABF10038BA3E /* libprotobuf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A29C128207BA8BC0028C9F0 /* libprotobuf.a */; };
+		5A5C833F207BAC3A0038BA3E /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5C833E207BAC3A0038BA3E /* Accelerate.framework */; };
+		5A78EEDF20C0F65D0092AC8B /* test_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5A78EEDE20C0F65D0092AC8B /* test_image.jpg */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5A1D713C207DE6A9002980B3 /* OpenCVUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenCVUtil.h; sourceTree = "<group>"; };
+		5A1D713D207DE6A9002980B3 /* OpenCVUtil.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVUtil.mm; sourceTree = "<group>"; };
+		5A29C0F1207B8E7E0028C9F0 /* DemoWithStaticLib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoWithStaticLib.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A29C0F4207B8E7E0028C9F0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5A29C0F5207B8E7E0028C9F0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5A29C0F7207B8E7E0028C9F0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		5A29C0F8207B8E7E0028C9F0 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
+		5A29C0FB207B8E7E0028C9F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5A29C0FD207B8E820028C9F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5A29C100207B8E820028C9F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5A29C102207B8E820028C9F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A29C103207B8E820028C9F0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5A29C10B207B8F0C0028C9F0 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = DemoWithStaticLib/FrameworkAndLib/opencv2.framework; sourceTree = "<group>"; };
+		5A29C114207B93300028C9F0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		5A29C116207B93970028C9F0 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		5A29C118207BA0470028C9F0 /* libFMHEDNet.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFMHEDNet.a; path = DemoWithStaticLib/FrameworkAndLib/FMHEDNet/libFMHEDNet.a; sourceTree = "<group>"; };
+		5A29C11E207BA0B40028C9F0 /* libtensorflow-core.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libtensorflow-core.a"; path = "DemoWithStaticLib/FrameworkAndLib/TensorFlow/libtensorflow-core.a"; sourceTree = "<group>"; };
+		5A29C120207BA1E30028C9F0 /* hed_graph.pb */ = {isa = PBXFileReference; lastKnownFileType = file; path = hed_graph.pb; sourceTree = "<group>"; };
+		5A29C128207BA8BC0028C9F0 /* libprotobuf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libprotobuf.a; path = DemoWithStaticLib/FrameworkAndLib/TensorFlow/libprotobuf.a; sourceTree = "<group>"; };
+		5A29C129207BA8BC0028C9F0 /* nsync.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = nsync.a; path = DemoWithStaticLib/FrameworkAndLib/TensorFlow/nsync.a; sourceTree = "<group>"; };
+		5A5C833E207BAC3A0038BA3E /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		5A78EEDE20C0F65D0092AC8B /* test_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test_image.jpg; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5A29C0EE207B8E7E0028C9F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A5C833F207BAC3A0038BA3E /* Accelerate.framework in Frameworks */,
+				5A5C833D207BABF10038BA3E /* libprotobuf.a in Frameworks */,
+				5A29C12B207BA8BC0028C9F0 /* nsync.a in Frameworks */,
+				5A29C127207BA8BB0028C9F0 /* libtensorflow-core.a in Frameworks */,
+				5A29C119207BA0470028C9F0 /* libFMHEDNet.a in Frameworks */,
+				5A29C117207B93980028C9F0 /* CoreMedia.framework in Frameworks */,
+				5A29C115207B93310028C9F0 /* AVFoundation.framework in Frameworks */,
+				5A29C113207B92600028C9F0 /* opencv2.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5A29C0E8207B8E7E0028C9F0 = {
+			isa = PBXGroup;
+			children = (
+				5A29C0F3207B8E7E0028C9F0 /* DemoWithStaticLib */,
+				5A29C0F2207B8E7E0028C9F0 /* Products */,
+				5A29C10A207B8F0B0028C9F0 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5A29C0F2207B8E7E0028C9F0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5A29C0F1207B8E7E0028C9F0 /* DemoWithStaticLib.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5A29C0F3207B8E7E0028C9F0 /* DemoWithStaticLib */ = {
+			isa = PBXGroup;
+			children = (
+				5A78EEDE20C0F65D0092AC8B /* test_image.jpg */,
+				5A29C120207BA1E30028C9F0 /* hed_graph.pb */,
+				5A29C0F4207B8E7E0028C9F0 /* AppDelegate.h */,
+				5A29C0F5207B8E7E0028C9F0 /* AppDelegate.m */,
+				5A29C0F7207B8E7E0028C9F0 /* ViewController.h */,
+				5A29C0F8207B8E7E0028C9F0 /* ViewController.mm */,
+				5A1D713C207DE6A9002980B3 /* OpenCVUtil.h */,
+				5A1D713D207DE6A9002980B3 /* OpenCVUtil.mm */,
+				5A29C0FA207B8E7E0028C9F0 /* Main.storyboard */,
+				5A29C0FD207B8E820028C9F0 /* Assets.xcassets */,
+				5A29C0FF207B8E820028C9F0 /* LaunchScreen.storyboard */,
+				5A29C102207B8E820028C9F0 /* Info.plist */,
+				5A29C103207B8E820028C9F0 /* main.m */,
+			);
+			path = DemoWithStaticLib;
+			sourceTree = "<group>";
+		};
+		5A29C10A207B8F0B0028C9F0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5A5C833E207BAC3A0038BA3E /* Accelerate.framework */,
+				5A29C128207BA8BC0028C9F0 /* libprotobuf.a */,
+				5A29C129207BA8BC0028C9F0 /* nsync.a */,
+				5A29C11E207BA0B40028C9F0 /* libtensorflow-core.a */,
+				5A29C118207BA0470028C9F0 /* libFMHEDNet.a */,
+				5A29C116207B93970028C9F0 /* CoreMedia.framework */,
+				5A29C114207B93300028C9F0 /* AVFoundation.framework */,
+				5A29C10B207B8F0C0028C9F0 /* opencv2.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5A29C0F0207B8E7E0028C9F0 /* DemoWithStaticLib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A29C107207B8E820028C9F0 /* Build configuration list for PBXNativeTarget "DemoWithStaticLib" */;
+			buildPhases = (
+				5A29C0ED207B8E7E0028C9F0 /* Sources */,
+				5A29C0EE207B8E7E0028C9F0 /* Frameworks */,
+				5A29C0EF207B8E7E0028C9F0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DemoWithStaticLib;
+			productName = DemoWithStaticLib;
+			productReference = 5A29C0F1207B8E7E0028C9F0 /* DemoWithStaticLib.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5A29C0E9207B8E7E0028C9F0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = fengjian;
+				TargetAttributes = {
+					5A29C0F0207B8E7E0028C9F0 = {
+						CreatedOnToolsVersion = 9.3;
+					};
+				};
+			};
+			buildConfigurationList = 5A29C0EC207B8E7E0028C9F0 /* Build configuration list for PBXProject "DemoWithStaticLib" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5A29C0E8207B8E7E0028C9F0;
+			productRefGroup = 5A29C0F2207B8E7E0028C9F0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5A29C0F0207B8E7E0028C9F0 /* DemoWithStaticLib */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5A29C0EF207B8E7E0028C9F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A29C121207BA1F10028C9F0 /* hed_graph.pb in Resources */,
+				5A29C101207B8E820028C9F0 /* LaunchScreen.storyboard in Resources */,
+				5A29C0FE207B8E820028C9F0 /* Assets.xcassets in Resources */,
+				5A29C0FC207B8E7E0028C9F0 /* Main.storyboard in Resources */,
+				5A78EEDF20C0F65D0092AC8B /* test_image.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5A29C0ED207B8E7E0028C9F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A1D713E207DE6A9002980B3 /* OpenCVUtil.mm in Sources */,
+				5A29C0F9207B8E7E0028C9F0 /* ViewController.mm in Sources */,
+				5A29C104207B8E820028C9F0 /* main.m in Sources */,
+				5A29C0F6207B8E7E0028C9F0 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5A29C0FA207B8E7E0028C9F0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5A29C0FB207B8E7E0028C9F0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5A29C0FF207B8E820028C9F0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5A29C100207B8E820028C9F0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5A29C105207B8E820028C9F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5A29C106207B8E820028C9F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5A29C108207B8E820028C9F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 78MZBHN5NS;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DemoWithStaticLib/FrameworkAndLib",
+				);
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/DemoWithStaticLib/FrameworkAndLib/FMHEDNet/include";
+				INFOPLIST_FILE = DemoWithStaticLib/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DemoWithStaticLib/FrameworkAndLib/TensorFlow",
+					"$(PROJECT_DIR)/DemoWithStaticLib/FrameworkAndLib/FMHEDNet",
+				);
+				OTHER_LDFLAGS = (
+					"-force_load",
+					"$(PROJECT_DIR)/DemoWithStaticLib/FrameworkAndLib/TensorFlow/libtensorflow-core.a",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fengjian.DemoWithStaticLib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5A29C109207B8E820028C9F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 78MZBHN5NS;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DemoWithStaticLib/FrameworkAndLib",
+				);
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/DemoWithStaticLib/FrameworkAndLib/FMHEDNet/include";
+				INFOPLIST_FILE = DemoWithStaticLib/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DemoWithStaticLib/FrameworkAndLib/TensorFlow",
+					"$(PROJECT_DIR)/DemoWithStaticLib/FrameworkAndLib/FMHEDNet",
+				);
+				OTHER_LDFLAGS = (
+					"-force_load",
+					"$(PROJECT_DIR)/DemoWithStaticLib/FrameworkAndLib/TensorFlow/libtensorflow-core.a",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fengjian.DemoWithStaticLib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5A29C0EC207B8E7E0028C9F0 /* Build configuration list for PBXProject "DemoWithStaticLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A29C105207B8E820028C9F0 /* Debug */,
+				5A29C106207B8E820028C9F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5A29C107207B8E820028C9F0 /* Build configuration list for PBXNativeTarget "DemoWithStaticLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A29C108207B8E820028C9F0 /* Debug */,
+				5A29C109207B8E820028C9F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5A29C0E9207B8E7E0028C9F0 /* Project object */;
+}
