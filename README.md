@@ -1,6 +1,12 @@
 # hed-tutorial-for-document-scanning
 Code for blog [手机端运行卷积神经网络的一次实践 -- 基于 TensorFlow 和 OpenCV 实现文档检测功能](http://fengjian0106.github.io/2017/05/08/Document-Scanning-With-TensorFlow-And-OpenCV/)
 
+## get code
+因为使用了[Git LFS](https://git-lfs.github.com)，请使用下面的命令下载代码
+```
+git lfs clone https://github.com/fengjian0106/hed-tutorial-for-document-scanning
+```
+
 ## how to run
 #### _1_ 准备图片资源，合成训练样本
 _1.1_ 背景图片下载到 ./sample\_images/background\_images 目录。  
