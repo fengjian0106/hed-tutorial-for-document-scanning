@@ -16,7 +16,7 @@ _2.3_ 在 UIView 上绘制的白色矩形边框，是有平滑处理的，白色
 
 ```
 python preprocess_generate_training_dataset.py \ 
-                        --dataset_root_dir dataset \
+			--dataset_root_dir dataset \
 			--dataset_folder_name generate_sample_by_ios_image_size_256_256_thickness_0.2
 ```                                        
 
