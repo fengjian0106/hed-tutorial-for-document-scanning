@@ -15,7 +15,7 @@ _2.2_ 将 2.1 里面生成的图片，全部移动到 ./dataset/generate\_sample
 _2.3_ 在 UIView 上绘制的白色矩形边框，是有平滑处理的，白色的 *Point* 对应的 像素数值并不是 255，所以还需要对这些白色的 *Point* 进行二值化处理，运行如下程序:
 
 ```
-python preprocess_generate_training_dataset.py \ 
+python preprocess_generate_training_dataset.py \
 			--dataset_root_dir dataset \
 			--dataset_folder_name generate_sample_by_ios_image_size_256_256_thickness_0.2
 ```                                        
