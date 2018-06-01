@@ -14,9 +14,9 @@ _2.2_ 将 2.1 里面生成的图片，全部移动到 ./dataset/generate\_sample
 
 _2.3_ 在 UIView 上绘制的白色矩形边框，是有平滑处理的，白色的 *Point* 对应的 像素数值并不是 255，所以还需要对这些白色的 *Point* 进行二值化处理，运行如下程序:
 
-``` python
+```
 python preprocess_generate_training_dataset.py \ 
-			--dataset_root_dir dataset \
+                        --dataset_root_dir dataset \
 			--dataset_folder_name generate_sample_by_ios_image_size_256_256_thickness_0.2
 ```                                        
 
@@ -24,7 +24,7 @@ python preprocess_generate_training_dataset.py \
 
 _2.4_ 利用 *gshuf* 工具，随机打乱 ./dataset/generate\_sample\_by\_ios\_image\_size\_256\_256\_thickness\_0.2.csv 文件的内容，执行如下命令:
 
-``` shell
+```
 gshuf ./dataset/generate_sample_by_ios_image_size_256_256_thickness_0.2.csv > ./dataset/temp.txt
 gshuf ./dataset/temp.txt > ./dataset/generate_sample_by_ios_image_size_256_256_thickness_0.2.csv
 ```
@@ -36,7 +36,7 @@ gshuf ./dataset/temp.txt > ./dataset/generate_sample_by_ios_image_size_256_256_t
 #### _3_ 训练网络
 运行如下程序:
 
-``` python
+```
 python train_hed.py --dataset_root_dir dataset \
                     --csv_path dataset/generate_sample_by_ios_image_size_256_256_thickness_0.2.csv \
                     --display_step 5
@@ -46,7 +46,7 @@ python train_hed.py --dataset_root_dir dataset \
 #### _4_ 在 python 环境中测试 HED 网络
 运行如下程序，处理一张图片:
 
-``` python
+```
 python evaluate_hed.py --checkpoint_dir checkpoint \
                        --image test_image/test27.jpg \
                        --output_dir test_image
@@ -55,7 +55,7 @@ python evaluate_hed.py --checkpoint_dir checkpoint \
 #### _5_ 在 iPhone 真机环境，运行完整的流程，包括运行 HED 网络和执行基于 OpenCV 实现的找点算法
 _5.1_ 导出 pb 格式的模型文件，运行如下程序:
 
-``` python
+```
 python freeze_model.py --checkpoint_dir checkpoint
 ```
 
