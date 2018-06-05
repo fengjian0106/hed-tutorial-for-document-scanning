@@ -2,9 +2,8 @@
 Code for blog [手机端运行卷积神经网络的一次实践 -- 基于 TensorFlow 和 OpenCV 实现文档检测功能](http://fengjian0106.github.io/2017/05/08/Document-Scanning-With-TensorFlow-And-OpenCV/)
 
 ## get code
-因为使用了[Git LFS](https://git-lfs.github.com)，请使用下面的命令下载代码
 ```
-git lfs clone https://github.com/fengjian0106/hed-tutorial-for-document-scanning
+git clone https://github.com/fengjian0106/hed-tutorial-for-document-scanning
 ```
 
 ## how to run
@@ -69,7 +68,12 @@ python freeze_model.py --checkpoint_dir checkpoint
 
 _5.2_ 运行 iOS demo 程序  
 
-*./ios\_demo/FMHEDNet/FMHEDNet.xcodeproj* 是一个静态库工程项目，里面封装了对 HED 网络的调用过程，这样可以避免在业务层 app 的工程文件中引入 TensorFlow 的源码文件。  
+*./ios\_demo/DemoWithStaticLib/DemoWithStaticLib.xcodeproj* 是一个 demo 程序，工程里面已经包含了编译好的各种依赖的静态库，可以直接运行。demo 里面有完整的流程，第一步是调用 HED 网络得到边缘检测图，第二步是执行找四边形顶点的算法。
 
-*./ios\_demo/DemoWithStaticLib/DemoWithStaticLib.xcodeproj* 是一个 demo 程序，链接了 FMHEDNet 编译出来的静态库，里面包含了完整的流程，第一步是调用 HED 网络得到边缘检测图，第二步是执行找四边形顶点的算法。
+_5.3_ 编译 FMHEDNet 静态库
+
+*./ios\_demo/FMHEDNet/FMHEDNet.xcodeproj* 是一个静态库工程项目，里面封装了对 HED 网络的调用过程，这样可以避免在业务层 app 的工程文件中引入 TensorFlow 的源码文件。如果想编译这个 FMHEDNet 静态库，需要先编译 TensorFlow Mobile，关于如何编译 TensorFlow Mobile，请看后面的 _5.4_ 。编译 FMHEDNet 的流程，请看[这里](https://github.com/fengjian0106/hed-tutorial-for-document-scanning/blob/master/ios_demo/FMHEDNet/FMHEDNet/FMHEDNet.mm)。
+
+_5.4_ 编译 TensorFlow Mobile
+TensorFlow 的[官方文档](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/makefile)有介绍编译的步骤。我使用的是手动裁剪过的版本，并且修改过 Protobuf 源码中的 namespace，具体步骤请看[这里](https://github.com/fengjian0106/hed-tutorial-for-document-scanning/blob/master/how_to_build_tensorflow_and_change_namespace_of_protobuf.txt)。
 
