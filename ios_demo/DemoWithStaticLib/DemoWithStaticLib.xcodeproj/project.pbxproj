@@ -129,6 +129,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5A29C107207B8E820028C9F0 /* Build configuration list for PBXNativeTarget "DemoWithStaticLib" */;
 			buildPhases = (
+				5A7E690720C6E703004975FE /* ShellScript */,
+				5A7E690820C6E82C004975FE /* ShellScript */,
 				5A29C0ED207B8E7E0028C9F0 /* Sources */,
 				5A29C0EE207B8E7E0028C9F0 /* Frameworks */,
 				5A29C0EF207B8E7E0028C9F0 /* Resources */,
@@ -188,6 +190,44 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5A7E690720C6E703004975FE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/DemoWithStaticLib/FrameworkAndLib/TensorFlow/libtensorflow-core-arm64.a",
+				"${SRCROOT}/DemoWithStaticLib/FrameworkAndLib/TensorFlow/libtensorflow-core-armv7s.a",
+				"${SRCROOT}/DemoWithStaticLib/FrameworkAndLib/TensorFlow/libtensorflow-core-armv7.a",
+				"${SRCROOT}/DemoWithStaticLib/FrameworkAndLib/TensorFlow/libtensorflow-core-x86_64.a",
+				"${SRCROOT}/DemoWithStaticLib/FrameworkAndLib/TensorFlow/libtensorflow-core-i386.a",
+			);
+			outputPaths = (
+				"${SRCROOT}/DemoWithStaticLib/FrameworkAndLib/TensorFlow/libtensorflow-core.a",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "lipo ${SRCROOT}/DemoWithStaticLib/FrameworkAndLib/TensorFlow/libtensorflow-core-arm64.a ${SRCROOT}/DemoWithStaticLib/FrameworkAndLib/TensorFlow/libtensorflow-core-armv7s.a ${SRCROOT}/DemoWithStaticLib/FrameworkAndLib/TensorFlow/libtensorflow-core-armv7.a  ${SRCROOT}/DemoWithStaticLib/FrameworkAndLib/TensorFlow/libtensorflow-core-x86_64.a ${SRCROOT}/DemoWithStaticLib/FrameworkAndLib/TensorFlow/libtensorflow-core-i386.a -create -output ${SRCROOT}/DemoWithStaticLib/FrameworkAndLib/TensorFlow/libtensorflow-core.a";
+		};
+		5A7E690820C6E82C004975FE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/DemoWithStaticLib/FrameworkAndLib/opencv2.framework/Versions/A/opencv2-aa",
+				"${SRCROOT}/DemoWithStaticLib/FrameworkAndLib/opencv2.framework/Versions/A/opencv2-ab",
+			);
+			outputPaths = (
+				"${SRCROOT}/DemoWithStaticLib/FrameworkAndLib/opencv2.framework/Versions/A/opencv2",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cat ${SRCROOT}/DemoWithStaticLib/FrameworkAndLib/opencv2.framework/Versions/A/opencv2-aa  ${SRCROOT}/DemoWithStaticLib/FrameworkAndLib/opencv2.framework/Versions/A/opencv2-ab > ${SRCROOT}/DemoWithStaticLib/FrameworkAndLib/opencv2.framework/Versions/A/opencv2";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5A29C0ED207B8E7E0028C9F0 /* Sources */ = {

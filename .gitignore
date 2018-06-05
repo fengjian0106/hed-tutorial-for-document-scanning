@@ -105,3 +105,7 @@ venv.bak/
 
 # MacOS DS_Store
 .DS_Store
+
+# ios big static lib
+ios_demo/DemoWithStaticLib/DemoWithStaticLib/FrameworkAndLib/opencv2.framework/Versions/A/opencv2
+ios_demo/DemoWithStaticLib/DemoWithStaticLib/FrameworkAndLib/TensorFlow/libtensorflow-core.a
