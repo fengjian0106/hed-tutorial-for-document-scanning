@@ -255,7 +255,7 @@ static bool IsSegmentsHasSameSegment(const std::vector<cv::Vec4i> segments, cons
         diff = diff % 90;//修正到0~90度
         
         //std::cout << " ********************, angle_a, angle_b are: (" << angle_a << ", " << angle_b << "), diff is: " << diff << std::endl;
-        if (diff < kSameSegmentsMaxAngle) {
+        if (diff < kSameSegmentsMaxAngle || diff > (90 - kSameSegmentsMaxAngle)) {
             return true;
         }
     }
