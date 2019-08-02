@@ -1,4 +1,4 @@
-# hed-tutorial-for-document-scanning
+# HED-tutorial-for-document-scanning
 Code for blog [手机端运行卷积神经网络实现文档检测功能(二) -- 从 VGG 到 MobileNetV2 知识梳理](http://fengjian0106.github.io/2018/06/02/Document-Scanning-With-TensorFlow-And-OpenCV-Part-Two/)
 
 ## get code
@@ -14,7 +14,9 @@ _1.1_ background image is downloaded to the ./sample\_images/background\_images 
 _1.2_ The foreground image is downloaded to the ./sample\_images/rect\_images directory.
 
 #### 2 Synthesize training samples using the iPhone simulator
-_2.1_ Open the ./generate\_training\_dataset/generate\_training\_dataset.xcodeproj project, first check the loadImagePaths function of ViewController.m, make sure that self.backgroundImagesPath and self.rectImagesPath point to the directories corresponding to 1.1 and 1.2 respectively, then run The program, and based on the printed log information, find the directory corresponding to self.imageSaveFolder on the Mac, the generated sample image will be saved in this directory.
+_2.1_ Open the ./generate\_training\_dataset/generate\_training\_dataset.xcodeproj project.
+
+-- first check the loadImagePaths function of ViewController.m, make sure that self.backgroundImagesPath and self.rectImagesPath point to the directories corresponding to 1.1 and 1.2 respectively, then run The program, and based on the printed log information, find the directory corresponding to self.imageSaveFolder on the Mac, the generated sample image will be saved in this directory.
 
 _2.2_ Move all the images generated in 2.1 to the ./dataset/generate\_sample\_by\_ios\_image\_size\_256\_256\_thickness\_0.2 directory.
 
