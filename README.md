@@ -16,7 +16,9 @@ _1.2_ The foreground image is downloaded to the ./sample\_images/rect\_images di
 #### 2 Synthesize training samples using the iPhone simulator
 _2.1_ Open the ./generate\_training\_dataset/generate\_training\_dataset.xcodeproj project.
 
--- first check the loadImagePaths function of ViewController.m, make sure that self.backgroundImagesPath and self.rectImagesPath point to the directories corresponding to 1.1 and 1.2 respectively, then run The program, and based on the printed log information, find the directory corresponding to self.imageSaveFolder on the Mac, the generated sample image will be saved in this directory.
+- Check the loadImagePaths function of ViewController.m: make sure that self.backgroundImagesPath and self.rectImagesPath point to the directories mentioned in 1.1 and 1.2 respectively, then run The program (_dataset.xcodeproj project) by pressing Run button on the xcode. Choose an iphone simulator to run this code (Please dont run this code on apple device) , and based on the printed log information, find the directory corresponding to self.imageSaveFolder on the Mac, the generated sample image will be saved in this directory.
+
+- After you successfully ran this script your images will saved in ```>> dataset->generate_sample_by_ios_image_size_256_256_thickness_0.2  (folder)``` . Basically you will observe two types of images : image1_color.jpg, image1_annotation.png. image2_color.jpg, image2_annotation.png ... etc. (I have attached few images in the dataset folder for my reference)
 
 _2.2_ Move all the images generated in 2.1 to the ./dataset/generate\_sample\_by\_ios\_image\_size\_256\_256\_thickness\_0.2 directory.
 
@@ -39,7 +41,7 @@ gshuf ./dataset/temp.txt > ./dataset/generate_sample_by_ios_image_size_256_256_t
 
 After performing this step, a batch of synthetic training sample images is obtained.
 
-The process of preparing the training samples should be customized according to the specific needs. Here is just a reference method. For example, you can manually mark a batch of images and organize them into csv files in the same format.
+The process of preparing the training samples should be customized according to the specific needs. Here is just a reference method. 
 
 #### _3_ Training Network
 Run the following program:
@@ -49,7 +51,7 @@ python train_hed.py --dataset_root_dir dataset \
                     --csv_path dataset/generate_sample_by_ios_image_size_256_256_thickness_0.2.csv \
                     --display_step 5
 ```
-
+After the training is done you get additional two types of images in the dataset->generate_sample_by_ios_image_size_256_256_thickness_0.2 folder these new images have names image1_annotation_gray.png and image1_annotation_thresh_gray.png. image2_annotation_gray.png and image2_annotation_thresh_gray.png ... etc
 
 #### _4_ Testing HED networks in a python environment
 Run the following program to process a picture:
