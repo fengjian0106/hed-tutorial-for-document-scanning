@@ -18,7 +18,7 @@ _2.1_ Open the ./generate\_training\_dataset/generate\_training\_dataset.xcodepr
 
 - Check the loadImagePaths function of ViewController.m: make sure that self.backgroundImagesPath and self.rectImagesPath point to the directories mentioned in 1.1 and 1.2 respectively, then run The program (_dataset.xcodeproj project) by pressing Run button on the xcode. Choose an iphone simulator to run this code (Please dont run this code on apple device) , and based on the printed log information, find the directory corresponding to self.imageSaveFolder on the Mac, the generated sample image will be saved in this directory.
 
-- After you successfully ran this script your images will saved in ```>> dataset->generate_sample_by_ios_image_size_256_256_thickness_0.2  (folder)``` . Basically you will observe two types of images : image1_color.jpg, image1_annotation.png. image2_color.jpg, image2_annotation.png ... etc. (I have attached few images in the dataset folder for my reference)
+- Basically you will observe two types of images : image1_color.jpg, image1_annotation.png. image2_color.jpg, image2_annotation.png ... etc. (I have attached few images in ```>> dataset->generate_sample_by_ios_image_size_256_256_thickness_0.2  (folder)``` for my reference)
 
 _2.2_ Move all the images generated in 2.1 to the ./dataset/generate\_sample\_by\_ios\_image\_size\_256\_256\_thickness\_0.2 directory.
 
